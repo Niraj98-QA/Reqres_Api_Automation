@@ -1,0 +1,37 @@
+========= API CALL =========
+Test Case Name: loginUser
+Timestamp: 2025-07-14T17:50:08.925505
+
+Request:
+POST https://reqres.in/api/login
+x-api-key: reqres-free-v1
+Accept: */*
+Content-Type: application/json
+Body: {"password":"cityslicka","email":"eve.holt@reqres.in"}
+
+Response:
+Status Code: 200
+Body: {
+    "token": "QpwL5tke4Pnpja7X4"
+}
+============================
+
+========= API CALL =========
+Test Case Name: registerUser
+Timestamp: 2025-07-14T17:50:09.570301
+
+Request:
+POST https://reqres.in/api/register
+x-api-key: reqres-free-v1
+Accept: */*
+Content-Type: application/json
+Body: {"password":"cityslicka","email":"eve.holt@reqres.in"}
+
+Response:
+Status Code: 200
+Body: {
+    "id": 4,
+    "token": "QpwL5tke4Pnpja7X4"
+}
+============================
+

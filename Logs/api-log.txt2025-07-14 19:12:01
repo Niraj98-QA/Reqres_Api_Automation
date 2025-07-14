@@ -1,0 +1,125 @@
+========= API CALL =========
+Test Case Name: testFetchNonUserInValidResource
+Timestamp: 2025-07-14T19:12:02.137998
+
+Request:
+GET https://reqres.in/api/unknown/23
+x-api-key: reqres-free-v1
+Accept: */*
+Content-Type: application/json
+
+Response:
+Status Code: 404
+Body: {
+    
+}
+============================
+
+========= API CALL =========
+Test Case Name: testGetSingleUserByInvalidID
+Timestamp: 2025-07-14T19:12:02.568582
+
+Request:
+GET https://reqres.in/api/users/23
+x-api-key: reqres-free-v1
+Accept: */*
+Content-Type: application/json
+
+Response:
+Status Code: 404
+Body: {
+    
+}
+============================
+
+========= API CALL =========
+Test Case Name: testGetUserWithInvalidID
+Timestamp: 2025-07-14T19:12:03.140199
+
+Request:
+GET https://reqres.in/api/users/abc
+x-api-key: reqres-free-v1
+Accept: */*
+Content-Type: application/json
+
+Response:
+Status Code: 404
+Body: {
+    
+}
+============================
+
+========= API CALL =========
+Test Case Name: testLoginUserWithMissingPassword
+Timestamp: 2025-07-14T19:12:03.657023
+
+Request:
+POST https://reqres.in/api/login
+x-api-key: reqres-free-v1
+Accept: */*
+Content-Type: application/json
+Body: {"email":"eve.holt@reqres.in"}
+
+Response:
+Status Code: 400
+Body: {
+    "error": "Missing password"
+}
+============================
+
+========= API CALL =========
+Test Case Name: testRegisterUserWithMissingEmail
+Timestamp: 2025-07-14T19:12:04.349873
+
+Request:
+POST https://reqres.in/api/register
+x-api-key: reqres-free-v1
+Accept: */*
+Content-Type: application/json
+Body: {"password":"cityslicka"}
+
+Response:
+Status Code: 400
+Body: {
+    "error": "Missing email or username"
+}
+============================
+
+========= API CALL =========
+Test Case Name: testRegisterUserWithMissingPassword
+Timestamp: 2025-07-14T19:12:04.767405
+
+Request:
+POST https://reqres.in/api/register
+x-api-key: reqres-free-v1
+Accept: */*
+Content-Type: application/json
+Body: {"email":"eve.holt@reqres.in"}
+
+Response:
+Status Code: 400
+Body: {
+    "error": "Missing password"
+}
+============================
+
+========= API CALL =========
+Test Case Name: testUpdateUserWithEmptyPayload
+Timestamp: 2025-07-14T19:12:05.296176
+
+Request:
+PUT https://reqres.in/api/users/2
+x-api-key: reqres-free-v1
+Accept: */*
+Content-Type: application/json
+Body: {"name":null,"job":null}
+
+Response:
+Status Code: 200
+Body: {
+    "name": null,
+    "job": null,
+    "updatedAt": "2025-07-14T13:42:05.163Z"
+}
+============================
+

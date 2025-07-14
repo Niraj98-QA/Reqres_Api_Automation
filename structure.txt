@@ -1,0 +1,36 @@
+gorest-api-automation/
+│
+├── pom.xml                          # Dependencies for RestAssured, TestNG, Allure, etc.
+├── testng.xml                       # TestNG test suite configuration
+│
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       └── utils/
+│   │           ├── ConfigReader.java
+│   │           ├── ExcelUtils.java
+│   │           └── JsonUtils.java
+│
+│   └── test/
+│       └── java/
+│           ├── base/
+│           │   └── BaseTest.java              # Setup base URI, headers, etc.
+│           │
+│           ├── endpoints/
+│           │   └── Routes.java                # All endpoint paths
+│           │
+│           ├── tests/
+│           │   ├── UserTests.java
+│           │   └── RetryAnalyzer.java
+│           │
+│           ├── payload/
+│           │   └── UserPayload.java           # JSON body builder
+│           │
+│           ├── pojo/
+│           │   └── User.java                  # For serialization/deserialization
+│           │
+│           ├── assertions/
+│           │   └── ResponseValidator.java     # Common assertions
+│           │
+│           └── reports/
+│               └── ExtentManager.java
