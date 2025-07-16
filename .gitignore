@@ -36,3 +36,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignore everything inside Reports
+Reports/*
+
+# But do not ignore the folder itself (or this placeholder file)
+!Reports/.gitkeep

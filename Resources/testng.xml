@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Reqres API Test Suite">
+
+    <listeners>
+        <listener class-name="Utils.ExtentReportListener"/>
+    </listeners>
+
+    <test name="API Tests">
+        <classes>
+            <class name="UserTests"/>
+            <class name="NegativeTests"/>
+            <class name="AuthTests"/>
+            <class name="PerformanceTests"/>
+        </classes>
+    </test>
+
+</suite>
