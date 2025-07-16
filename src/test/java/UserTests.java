@@ -1,5 +1,6 @@
 import Core.BaseTest;
 import Pojo.User;
+import Utils.DataProviders;
 import Utils.Routes;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
@@ -43,11 +44,11 @@ public class UserTests extends BaseTest {
         System.out.println("testGetSingleUser passed successfully");
     }
 
-    @Test(description = "Test to create a user")
-    public void testCreateUser() {
+    @Test(description = "Test to create a user",dataProvider = "createUserData",dataProviderClass = DataProviders.class)
+    public void testCreateUser(String name, String job) {
         User userBody = new User();
-        userBody.setName("Adam");
-        userBody.setJob("Software Tester");
+        userBody.setName(name);
+        userBody.setJob(job);
         Response response =
                         requestSpecification
                         .when()
