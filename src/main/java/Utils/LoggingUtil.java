@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class LoggingUtil
 {
@@ -42,7 +43,7 @@ public class LoggingUtil
         Map<String,Object> logMap = new HashMap<>();
         logMap.put("Status Code",response.getStatusCode());
         logMap.put("Headers",response.getHeaders());
-        logMap.put("Execution time",response.time());
+        logMap.put("Execution time",response.timeIn(TimeUnit.SECONDS)+" seconds");
 
        Object responseBody;
        try

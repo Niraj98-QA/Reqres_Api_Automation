@@ -5,7 +5,9 @@ import com.aventstack.extentreports.ExtentTest;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
 import java.io.IOException;
+import java.util.Arrays;
 
 public class ExtentReportListener implements ITestListener {
 
@@ -27,9 +29,16 @@ public class ExtentReportListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
+        // Build a unique name if parameters exist (for DataProvider clarity)
+        String methodName = result.getMethod().getMethodName();
+        Object[] params = result.getParameters();
+        if (params != null && params.length > 0) {
+            methodName += " - Params: " + Arrays.toString(params);
+        }
+
+        ExtentTest extentTest = extent.createTest(methodName);
         test.set(extentTest);
-        test.get().info("Starting: " + result.getMethod().getMethodName());
+        test.get().info("Starting: " + methodName);
     }
 
     @Override
@@ -44,7 +53,7 @@ public class ExtentReportListener implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        test.get().skip("⏭ Testcase Skipped");
+        test.get().skip("Testcase Skipped");
     }
 
     @Override

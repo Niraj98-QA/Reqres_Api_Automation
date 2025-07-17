@@ -15,15 +15,13 @@ public class BaseTest {
 
     public RequestSpecification requestSpecification;
     public SoftAssert softAssert;
-    public ExtentTest test;
 
     @BeforeMethod
     public void setupMethod(Method method) throws IOException {
         softAssert = new SoftAssert();
-        test = ExtentReportListener.getTest();
         requestSpecification = RestAssured
                 .given()
-                .filter(new LoggingFilter(test))
+                .filter(new LoggingFilter())
                 .baseUri(PropertyReader.getProperty("serverAddress"))
                 .header("Content-Type", "application/json")
                 .header("x-api-key", "reqres-free-v1");

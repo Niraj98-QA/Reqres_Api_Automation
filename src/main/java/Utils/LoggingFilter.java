@@ -9,14 +9,12 @@ import io.restassured.specification.FilterableResponseSpecification;
 
 public class LoggingFilter implements Filter {
 
-    private final ExtentTest test;
-
-    public LoggingFilter(ExtentTest test) {
-        this.test = test;
-    }
-
     @Override
     public Response filter(FilterableRequestSpecification requestSpec, FilterableResponseSpecification responseSpec, FilterContext ctx) {
+
+        // Fetch the current test dynamically from ThreadLocal
+        ExtentTest test = ExtentReportListener.getTest();
+
         String method = requestSpec.getMethod();
         String url = requestSpec.getURI();
         Object requestBody = requestSpec.getBody();
