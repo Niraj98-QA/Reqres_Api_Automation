@@ -3,8 +3,10 @@ package Utils;
 import com.aventstack.extentreports.ExtentTest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import io.qameta.allure.Allure;
 import io.restassured.response.Response;
 
+import java.io.ByteArrayInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -32,6 +34,7 @@ public class LoggingUtil
         try {
             String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(logMap);
             test.info("<pre>"+json+"</pre>");
+            Allure.addAttachment("Request Details","application/json",new ByteArrayInputStream(json.getBytes()),".json");
         }
         catch (Exception e) {
             test.warning("Failed to log a request "+e.getMessage());
@@ -61,6 +64,7 @@ public class LoggingUtil
         try {
             String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(logMap);
             test.info("<pre>"+json+"</pre>");
+            Allure.addAttachment("Response Details","application/json",new ByteArrayInputStream(json.getBytes()),".json");
         }
         catch (Exception e) {
             test.warning("Failed to log a response "+e.getMessage());

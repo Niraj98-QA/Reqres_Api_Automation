@@ -1,0 +1,1 @@
+{"uuid":"c6410e5f-dcc5-4c29-b4ad-72f6f4c5a80e","name":"Core.BaseTest.setupMethod","children":["367d9287-46af-4501-8275-aaa025854768"],"description":"","befores":[{"name":"setupMethod","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1752777742071,"stop":1752777742071}],"afters":[],"start":1752777742071,"stop":1752777742071}

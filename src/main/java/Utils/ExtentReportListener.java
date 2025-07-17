@@ -41,6 +41,11 @@ public class ExtentReportListener implements ITestListener {
         test.get().info("Starting: " + methodName);
     }
 
+    public static void createTestForRetry(ITestResult result) {
+        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName() + " (Retry-" + (result.getMethod().getCurrentInvocationCount()) + ")");
+        test.set(extentTest);
+    }
+
     @Override
     public void onTestSuccess(ITestResult result) {
         test.get().pass("Testcase Passed Successfully");

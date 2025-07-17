@@ -1,6 +1,7 @@
 import Core.BaseTest;
 import Pojo.User;
 import Utils.*;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import Enum.StatusCode;

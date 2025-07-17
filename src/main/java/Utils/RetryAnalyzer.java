@@ -13,6 +13,7 @@ public class RetryAnalyzer implements IRetryAnalyzer
         {
             retryCount++;
             System.out.println("Retrying test "+iTestResult.getName()+" again "+retryCount);
+            ExtentReportListener.createTestForRetry(iTestResult);
             return true;
         }
         return false;
