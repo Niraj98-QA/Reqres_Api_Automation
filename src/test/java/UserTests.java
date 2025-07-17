@@ -1,8 +1,6 @@
 import Core.BaseTest;
 import Pojo.User;
-import Utils.DataProviders;
-import Utils.RetryAnalyzer;
-import Utils.Routes;
+import Utils.*;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 import Enum.StatusCode;
@@ -10,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class UserTests extends BaseTest {
+
     @Test(description = "Test to retrieve list of users",retryAnalyzer = RetryAnalyzer.class)
     public void testGetAllUsers() {
         Response response =
