@@ -43,7 +43,6 @@ public class BaseTest {
 
     @AfterMethod
     public void afterMethod(ITestResult result) {
-        softAssert.assertAll();
         LogManager.clearCurrentTestLog();
     }
 }

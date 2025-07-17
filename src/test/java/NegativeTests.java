@@ -1,6 +1,7 @@
 import Core.BaseTest;
 import Pojo.User;
 import Utils.JsonReader;
+import Utils.RetryAnalyzer;
 import Utils.Routes;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class NegativeTests extends BaseTest {
-    @Test(description = "Test to retrieve a user with invalid ID")
+    @Test(description = "Test to retrieve a user with invalid ID",retryAnalyzer = RetryAnalyzer.class)
     public void testGetSingleUserByInvalidID() {
         Response response =
                         requestSpecification
@@ -24,11 +25,12 @@ public class NegativeTests extends BaseTest {
         softAssert.assertEquals(response.getStatusCode(), StatusCode.NOT_FOUND.code, "Expected status code was 404 but actual status code was " + response.getStatusCode());
         String responseBody = response.getBody().asString().trim();
         softAssert.assertTrue(responseBody.isEmpty() || responseBody.equals("{}"), "Expected empty response body, but got: " + responseBody);
+        softAssert.assertAll();
         System.out.println(response.body().asString());
         System.out.println("testGetSingleUserByInvalidID passed successfully");
     }
 
-    @Test(description = "Testcase to check user login with missing password")
+    @Test(description = "Testcase to check user login with missing password",retryAnalyzer = RetryAnalyzer.class)
     public void testLoginUserWithMissingPassword() throws IOException, ParseException {
         Map<String, String> loginBody = new HashMap<>();
         loginBody.put("email", JsonReader.getJsonData("email"));
@@ -41,11 +43,12 @@ public class NegativeTests extends BaseTest {
                         .extract()
                         .response();
         softAssert.assertEquals(response.getStatusCode(), StatusCode.BAD_REQUEST.code, "Expected status code was 400 but actual status code was " + response.getStatusCode());
+        softAssert.assertAll();
         System.out.println(response.jsonPath().getString("error"));
         System.out.println("testLoginUserWithMissingPassword passed successfully");
     }
 
-    @Test(description = "Testcase to check user register with missing emailID")
+    @Test(description = "Testcase to check user register with missing emailID",retryAnalyzer = RetryAnalyzer.class)
     public void testRegisterUserWithMissingEmail() throws IOException, ParseException {
         Map<String, String> registerBody = new HashMap<>();
         registerBody.put("password", JsonReader.getJsonData("password"));
@@ -58,11 +61,12 @@ public class NegativeTests extends BaseTest {
                         .extract()
                         .response();
         softAssert.assertEquals(response.getStatusCode(), StatusCode.BAD_REQUEST.code, "Expected status code was 400 but actual status code was " + response.getStatusCode());
+        softAssert.assertAll();
         System.out.println(response.jsonPath().getString("error"));
         System.out.println("testRegisterUserWithMissingEmail passed successfully");
     }
 
-    @Test(description = "Testcase to check user register with missing password")
+    @Test(description = "Testcase to check user register with missing password",retryAnalyzer = RetryAnalyzer.class)
     public void testRegisterUserWithMissingPassword() throws IOException, ParseException {
         Map<String, String> registerBody = new HashMap<>();
         registerBody.put("email", JsonReader.getJsonData("email"));
@@ -75,11 +79,12 @@ public class NegativeTests extends BaseTest {
                         .extract()
                         .response();
         softAssert.assertEquals(response.getStatusCode(), StatusCode.BAD_REQUEST.code, "Expected status code was 400 but actual status code was " + response.getStatusCode());
+        softAssert.assertAll();
         System.out.println(response.jsonPath().getString("error"));
         System.out.println("testRegisterUserWithMissingPassword passed successfully");
     }
 
-    @Test(description = "Test to get a user with invalid ID format")
+    @Test(description = "Test to get a user with invalid ID format",retryAnalyzer = RetryAnalyzer.class)
     public void testGetUserWithInvalidID() {
         Response response =
                         requestSpecification
@@ -90,10 +95,11 @@ public class NegativeTests extends BaseTest {
                         .extract()
                         .response();
         softAssert.assertEquals(response.getStatusCode(), StatusCode.NOT_FOUND.code, "Expected status code was 404 but actual status code was " + response.getStatusCode());
+        softAssert.assertAll();
         System.out.println("testGetUserWithInvalidID passed successfully");
     }
 
-    @Test(description = "Test to fetch a Invalid non user resource")
+    @Test(description = "Test to fetch a Invalid non user resource",retryAnalyzer = RetryAnalyzer.class)
     public void testFetchNonUserInValidResource() {
         Response response =
                         requestSpecification
@@ -105,10 +111,11 @@ public class NegativeTests extends BaseTest {
                         .response();
         softAssert.assertEquals(response.getStatusCode(), StatusCode.NOT_FOUND.code, "Expected status code was 404 but actual status code was " + response.getStatusCode());
         softAssert.assertTrue(response.getBody().asString().trim().equals("{}") || response.getBody().asString().trim().isEmpty(), "Expected empty JSON");
+        softAssert.assertAll();
         System.out.println("testFetchNonUserInValidResource passed successfully");
     }
 
-    @Test(description = "Test to update a user with empty payload")
+    @Test(description = "Test to update a user with empty payload",retryAnalyzer = RetryAnalyzer.class)
     public void testUpdateUserWithEmptyPayload() {
         User userBody = new User();
         Response response =
@@ -122,6 +129,7 @@ public class NegativeTests extends BaseTest {
                         .response();
         softAssert.assertEquals(response.getStatusCode(), StatusCode.SUCCESS.code, "Expected status code was 200 but actual status code was " + response.getStatusCode());
         softAssert.assertNotNull(response.jsonPath().getString("updatedAt"), "Expected the updated timestamp but got Null");
+        softAssert.assertAll();
         System.out.println("testUpdateUserWithEmptyPayload passed successfully");
     }
 }

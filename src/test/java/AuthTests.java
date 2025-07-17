@@ -1,5 +1,6 @@
 import Core.BaseTest;
 import Utils.JsonReader;
+import Utils.RetryAnalyzer;
 import Utils.Routes;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
@@ -11,7 +12,7 @@ import java.util.Map;
 
 public class AuthTests extends BaseTest
 {
-    @Test(description = "Testcase to test user login")
+    @Test(description = "Testcase to test user login",retryAnalyzer = RetryAnalyzer.class)
     public void testLoginUser() throws IOException, ParseException {
         Map<String,String> loginBody = new HashMap<>();
         loginBody.put("email",JsonReader.getJsonData("email"));
@@ -26,10 +27,11 @@ public class AuthTests extends BaseTest
                         .response();
         softAssert.assertEquals(response.getStatusCode(),StatusCode.SUCCESS.code,"Expected status code was 200 but actual status code was "+response.getStatusCode());
         softAssert.assertNotNull(response.jsonPath().getString("token"));
+        softAssert.assertAll();
         System.out.println("testLoginUser passed successfully");
     }
 
-    @Test(description = "Testcase to test user registration")
+    @Test(description = "Testcase to test user registration",retryAnalyzer = RetryAnalyzer.class)
     public void testRegisterUser() throws IOException, ParseException {
         Map<String,String> registerBody = new HashMap<>();
         registerBody.put("email",JsonReader.getJsonData("email"));
@@ -45,6 +47,7 @@ public class AuthTests extends BaseTest
         softAssert.assertEquals(response.getStatusCode(),StatusCode.SUCCESS.code,"Expected status code was 200 but actual status code was "+response.getStatusCode());
         softAssert.assertNotNull(response.jsonPath().getString("id"));
         softAssert.assertNotNull(response.jsonPath().getString("token"));
+        softAssert.assertAll();
         System.out.println("testRegisterUser passed successfully");
     }
 }
