@@ -1,7 +1,10 @@
 package Core;
 
+import Utils.ExtentReportListener;
+import Utils.ExtentReportManager;
 import Utils.LoggingFilter;
 import Utils.PropertyReader;
+import com.aventstack.extentreports.ExtentTest;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeMethod;
@@ -17,6 +20,11 @@ public class BaseTest {
     @BeforeMethod
     public void setupMethod(Method method) throws IOException {
         softAssert = new SoftAssert();
+
+        if (ExtentReportListener.getTest() == null) {
+            ExtentTest t = ExtentReportManager.getInstance().createTest(method.getName());
+            ExtentReportListener.setTest(t);
+        }
         requestSpecification = RestAssured
                 .given()
                 .filter(new LoggingFilter())

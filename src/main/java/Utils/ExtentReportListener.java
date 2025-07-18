@@ -27,6 +27,10 @@ public class ExtentReportListener implements ITestListener {
         return test.get();
     }
 
+    public static void setTest(ExtentTest extentTest) {
+        test.set(extentTest);
+    }
+
     @Override
     public void onTestStart(ITestResult result) {
         // Build a unique name if parameters exist (for DataProvider clarity)
@@ -37,7 +41,7 @@ public class ExtentReportListener implements ITestListener {
         }
 
         ExtentTest extentTest = extent.createTest(methodName);
-        test.set(extentTest);
+        setTest(extentTest);
         test.get().info("Starting: " + methodName);
     }
 
