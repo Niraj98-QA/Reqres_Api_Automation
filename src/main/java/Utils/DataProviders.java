@@ -9,7 +9,7 @@ public class DataProviders
         return new Object[][]{
                 {"Sam","QA"},
                 {"Peter","Devops Engineer"},
-                {"paul","Developer"}
+                {"Paul","Developer"}
         };
     }
 }
