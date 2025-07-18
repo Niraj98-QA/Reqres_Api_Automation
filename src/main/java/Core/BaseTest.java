@@ -1,9 +1,7 @@
 package Core;
 
-import Utils.ExtentReportListener;
 import Utils.LoggingFilter;
 import Utils.PropertyReader;
-import com.aventstack.extentreports.ExtentTest;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import org.testng.annotations.BeforeMethod;

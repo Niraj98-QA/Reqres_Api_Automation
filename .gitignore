@@ -42,3 +42,6 @@ Reports/*
 
 # But do not ignore the folder itself (or this placeholder file)
 !Reports/.gitkeep
+
+#Ignore the folder
+allure-results
