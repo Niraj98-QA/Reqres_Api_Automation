@@ -31,15 +31,11 @@ pipeline {
             }
         }
 
-        stage('Publish Reports') {
+        stage('Allure Report') {
             steps {
-                publishHTML([
-                    allowMissing: true,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: 'target/site/allure-maven-plugin',
-                    reportFiles: 'index.html',
-                    reportName: 'Allure Report'
+                allure([
+                    results: [[path: 'target/allure-results']],
+                    reportBuildPolicy: 'ALWAYS'
                 ])
             }
         }
