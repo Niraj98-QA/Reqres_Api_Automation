@@ -33,7 +33,6 @@ public class ExtentReportListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
-        // Build a unique name if parameters exist (for DataProvider clarity)
         String methodName = result.getMethod().getMethodName();
         Object[] params = result.getParameters();
         if (params != null && params.length > 0) {
