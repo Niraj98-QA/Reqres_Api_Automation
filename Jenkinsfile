@@ -25,16 +25,21 @@ pipeline {
             }
         }
 
+        stage('Generate Allure Report') {
+            steps {
+                sh 'mvn allure:report'
+            }
+        }
+
         stage('Publish Reports') {
             steps {
-                // Publish HTML or Allure/Extent reports if needed
                 publishHTML([
                     allowMissing: true,
                     alwaysLinkToLastBuild: true,
                     keepAll: true,
-                    reportDir: 'target/allure-results',
+                    reportDir: 'target/site/allure-maven-plugin',
                     reportFiles: 'index.html',
-                    reportName: 'Test Report'
+                    reportName: 'Allure Report'
                 ])
             }
         }
