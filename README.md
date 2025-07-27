@@ -60,19 +60,31 @@ allure serve allure-results
 ```
 ## 📊 Sample Reports
 
-## Allure report screenshots
+### ✅ Allure Report Overview
+![Allure Report Overview](https://raw.githubusercontent.com/Niraj98-QA/Reqres_Api_Automation/main/Screenshots/AllureReportOverview.png)
 
-```markdown
-![Allure Report Screenshot](Screenshots/AllureReportOverview.png)
-![Allure Report Screenshot](Screenshots/AllureReportSuites.png)
-![Allure Report Screenshot](Screenshots/AllureReportGraph.png)
-```
+---
 
-## Extent report screenshots
-```markdown
+### ✅ Allure Report Suites
+![Allure Report Suites](https://raw.githubusercontent.com/Niraj98-QA/Reqres_Api_Automation/main/Screenshots/AllureReportSuites.png)
+
+---
+
+### ✅ Allure Report Graph
+![Allure Report Graph](https://raw.githubusercontent.com/Niraj98-QA/Reqres_Api_Automation/main/Screenshots/AllureReportGraph.png)
+
+---
+
+### ✅ Extent Report Suites
 ![Extent Report Screenshot](Screenshots/ExtentReportSuite.png)
+
+---
+
+### ✅ Extent Report Graph
+
 ![Extent Report Screenshot](Screenshots/ExtentReportGraph.png)
-```
+
+---
 
 ## Tech Stack
 ```
