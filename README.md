@@ -58,21 +58,21 @@ mvn clean test
 ```bash
 allure serve allure-results
 ```
-📊 Sample Reports
+## 📊 Sample Reports
 
 ## Allure report screenshots
 
-```
-![Allure Report Screenshot](https://github.com/user-attachments/assets/03600886-68e9-4d70-b58a-ea3da451f3c1)
-![Allure Report Screenshot](https://github.com/user-attachments/assets/af00af40-caf8-4ca3-aff9-dbcef4fb9f4a)
-![Allure Report Screenshot](https://github.com/user-attachments/assets/f2664995-aa19-48a9-8f3a-adfde0de6ae4)
+```markdown
+![Allure Report Screenshot](Screenshots/AllureReportOverview.png)
+![Allure Report Screenshot](Screenshots/AllureReportSuites.png)
+![Allure Report Screenshot](Screenshots/AllureReportGraph.png)
 
 ```
 
 ## Extent report screenshots
 ```markdown
-<img width="1800" height="1034" alt="Screenshot 2025-07-27 at 11 11 56 AM" src="https://github.com/user-attachments/assets/62d859cf-3c14-490c-b3ae-9bdcc48c3844" />
-<img width="1800" height="1037" alt="Screenshot 2025-07-27 at 11 12 04 AM" src="https://github.com/user-attachments/assets/11127d9a-bda9-42ef-ae5b-905f566c51b4" />
+![Extent Report Screenshot](Screenshots/ExtentReportSuite.png)
+![Extent Report Screenshot](Screenshots/ExtentReportGraph.png)
 ```
 
 ## Tech Stack
@@ -83,4 +83,5 @@ Test Runner: TestNG
 Frameworks: Rest Assured, WireMock
 Reports: Allure, Extent
 CI/CD: Jenkinsfile included
+
 ```
