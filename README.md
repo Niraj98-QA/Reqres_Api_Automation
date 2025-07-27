@@ -63,10 +63,9 @@ allure serve allure-results
 ## Allure report screenshots
 
 ```markdown
-![Allure Report Screenshot](Reqres_Api_Automation/Screenshots/AllureReportGraph.png)
+![Allure Report Screenshot](Screenshots/AllureReportOverview.png)
 ![Allure Report Screenshot](Screenshots/AllureReportSuites.png)
 ![Allure Report Screenshot](Screenshots/AllureReportGraph.png)
-
 ```
 
 ## Extent report screenshots
