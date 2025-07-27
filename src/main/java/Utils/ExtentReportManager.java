@@ -34,7 +34,7 @@ public class ExtentReportManager
         ExtentSparkReporter reporter = new ExtentSparkReporter(latestReportPath);
         reporter.config().setReportName("REQRES_API");
         reporter.config().setDocumentTitle("API AUTOMATION REPORT");
-        reporter.config().setTheme(Theme.DARK);
+        reporter.config().setTheme(Theme.STANDARD);
         reporter.config().setOfflineMode(true);
         reporter.config().setTimelineEnabled(true);
 
