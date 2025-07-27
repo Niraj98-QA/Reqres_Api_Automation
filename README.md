@@ -89,10 +89,15 @@ allure serve allure-results
 ## Tech Stack
 ```
 Language: Java
+
 Build Tool: Maven
+
 Test Runner: TestNG
+
 Frameworks: Rest Assured, WireMock
+
 Reports: Allure, Extent
+
 CI/CD: Jenkinsfile included
 
 ```
