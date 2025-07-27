@@ -94,7 +94,7 @@ Build Tool: Maven
 
 Test Runner: TestNG
 
-Frameworks: Rest Assured, WireMock
+Frameworks: Rest Assured
 
 Reports: Allure, Extent
 
