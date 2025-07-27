@@ -63,7 +63,7 @@ allure serve allure-results
 ## Allure report screenshots
 
 ```markdown
-![Allure Report Screenshot](Screenshots/AllureReportOverview.png)
+![Allure Report Screenshot](https://github.com/Niraj98-QA/Reqres_Api_Automation/blob/main/Screenshots/AllureReportOverview.png)
 ![Allure Report Screenshot](Screenshots/AllureReportSuites.png)
 ![Allure Report Screenshot](Screenshots/AllureReportGraph.png)
 
