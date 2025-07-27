@@ -36,7 +36,6 @@ src
 │ └── MockTests (WireMock)
 └── resources
 └── allure.properties
-
 ---
 
 ## How to Run
