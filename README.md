@@ -19,6 +19,7 @@ It includes reporting, logging, data-driven testing, and CI/CD integration.
 ---
 
 ## 📂 Project Structure
+```
 src
 ├── main
 │ ├── java
@@ -36,6 +37,7 @@ src
 │ └── MockTests (WireMock)
 └── resources
 └── allure.properties
+```
 ---
 
 ## How to Run
